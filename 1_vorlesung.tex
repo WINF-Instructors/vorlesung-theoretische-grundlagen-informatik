@@ -1,6 +1,7 @@
 \documentclass{beamer}
 \usetheme{CambridgeUS}
 \usepackage{tikz}
+\usepackage[german]{babel}
 \usetikzlibrary{matrix,arrows,fit,positioning, mindmap, trees}
 
 \usepackage[latin1]{inputenc}
@@ -12,7 +13,8 @@
 \usepackage{verbatim}
 %\usetheme{Boadilla}
 %\usecolortheme{crane}
-\title{Theoretische Grundlagen der Informatik}
+\title{Mathematik I: \\Theoretische Grundlagen der Informatik}
+
 
 \author{Prof.\ Dr.-Ing. Sebastian Schlesinger}
 %\institute{Berlin School of Economics and Law}
@@ -23,10 +25,11 @@
 \end{frame}
 \begin{frame}
 \frametitle{Lernziele dieser Vorlesung}
-Verst\"andnis f\"ur 
+ 
 \begin{itemize}
-\item grundlegende mathematische Notation
-\item das F\"uhren mathematischer Beweise
+\item Verst"andnis erlangen f"ur die grundlegende mathematische Notation
+\item Prinzipien der Aussagenlogik verstehen
+\item Grundsetzliches Vorgehen beim F\"uhren mathematischer Beweise verstehen
 \end{itemize}
 \end{frame}
 %\begin{frame}
@@ -37,14 +40,86 @@ Verst\"andnis f\"ur
 %\subsection{Symmetric va. asymmetric ciphers}
  
 \begin{frame}
-\frametitle{Mengen}
+\frametitle{Aussagen}
 
-Test
+Unter einer \textbf{Aussage} versteht man einen sprachlichen Ausdruck, dem man eindeutig einen der beiden Wahrheitswerte w (\glqq wahr\grqq) bzw. f (\glqq falsch\grqq) zuordnen kann. 
 
-
+Aussagen werden mit Gro\ss buchstaben bezeichnet, \[A:Beschreibung\]
+und k"onnen mit logischen Operationen verkn"upft werden. Grundlegende mathematische Aussagen, die nicht aus anderen Aussagen abgeleitet werden k"onnen, nennt man \textbf{Axiome}.
 \end{frame}
 
+\begin{frame}
+  \frametitle{Beispiele von Aussagen}
+  \begin{itemize}
+    \item Wahre Aussage A: Jede nat"urliche Zahl ist ein Produkt von Primzahlen.
+    \item Falsche Aussage B: Jede Primzahl ist ungerade
+    \item Unbewiesene Vermutung (wahr oder falsch, d.h. eine Aussage, bei der der Wahrheitswert noch nicht entschieden werden konnte) C: Es gibt unendlich viele Primzahlzwillinge.
+    \item Keine Aussage (Feststellung ohne Wahrheitswert) D: Freitag der dreizehnte ist ein Ungl"uckstag.
+  \end{itemize}
+      
+\end{frame}
 
+\begin{frame}
+  \frametitle{Logische Operationen}
+  Logische Aussagen k"onnen durch die in der folgenden Tabelle angegebenen Operationen verkn"upft werden.
+  
+  \begin{tabular}[h]{c|cc|c}
+   
+    Bezeichnung & Schreibweise & (Sprechweise) & wahr, gdw \\
+    \hline
+    Negation & $\neg A$ & (nicht A) & A falsch ist \\
+    Konjunktion & $A\wedge B$ & (A und B) & A und B wahr sind \\
+    Disjunktion & $A\vee B$ & (A oder B) & A oder B wahr ist \\
+    Implikation & $A\Rightarrow B$ & (wenn A dann B) & A falsch oder B wahr \\
+    "Aquivalenz & $A\Leftrightarrow B$ & (A "aquivalent B) & A und B "aquivalent 
+
+
+    \end{tabular}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Bindungsst"arke}
+  Um in logischen Ausdr"ucken Klammern zu sparen, wird festgelegt, dass $\neg$ st"arker bindet als $\wedge$ sowie $\vee$ und diese wiederum st"arker als $\Rightarrow, \Leftrightarrow$.
+\end{frame}
+
+\begin{frame}
+  \frametitle{Wahrheitstabelle}
+  In der folgenden Tabelle sind die Wahrheitswerte der vorgestellten Verkn"upfungen angegeben. Dabei steht w f"ur wahr und f f"ur falsch.
+  \begin{tabular}[h]{c|c|c|c|c|c|c}
+   
+    $A$ & $B$ & $\neg A$ & $A\wedge B$ & $A\vee B$ & $A\Rightarrow B$ & $A\Leftrightarrow B$ \\
+    \hline
+    w & w & f & w & w & w & w \\
+    w & f & f & f & w & f & f \\
+    f & w & w & f & w & w & f \\
+    f & f & w & f & f & w & w
+    
+  \end{tabular}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Gesetze f"ur logische Operationen}
+  F"ur logische Operationen gelten die folgenden Identit"aten. 
+  \begin{itemize}
+    \item Assoziativgesetze: \[(A\wedge B)\wedge C = A\wedge(B\wedge C)\] \[(A\vee B)\vee C = A\vee(B\vee C)\]
+    \item Kommutativgesetze: \[A\wedge B = B\wedge A\]\[A\vee B = B\vee A\]
+    \item Distributivgesetze: \[A \wedge (B\vee C) = (A\vee C)\wedge (B\vee C)\] \[A\vee (B\wedge C) = (A\wedge C)\vee (B\wedge C)\]
+  \end{itemize}
+   
+\end{frame}
+\begin{frame}
+  \frametitle{Gesetze f"ur logische Operationen}
+  F"ur logische Operationen gelten die folgenden Identit"aten. 
+  \begin{itemize}
+    \item De Morgansche Regeln: \[\neg(A\wedge B) = (\neg A)\vee(\neg B)\]\[\neg(A\vee B) = (\neg A)\wedge(\neg B)\]
+    \item Idempotenz: \[\neg(\neg A) = A\]\[A\vee A = A\]\[A\wedge A = A\]
+  \end{itemize}
+   
+\end{frame}
+  % \begin{block}{Cryptographic System}
+  %   An encryption is a function $enc:K\times P\to C$ from the cartesian product of the set of keys $K$ and the set of plaintexts $P$ to the set cyphertexts $C$. A decryption is a function $dec: K\times C\to P$. A suitable decryption has a key $k'$ such that \[\forall k\in K\forall x\in P: dec(k',enc(k,x))=x\]
+  %   Alternative notation for $enc(k,m)$ is $enc_k(m)$.
+  %   \end{block}
 % \tikzset{rechteck/.style={rectangle, minimum
 % width=20mm, minimum height=8mm,text centered, draw=black, fill=gray!15, line
 % width=0.8}}
