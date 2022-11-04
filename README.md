@@ -1,1 +1,0 @@
-# vorlesung-theoretische-grundlagen-informatik
