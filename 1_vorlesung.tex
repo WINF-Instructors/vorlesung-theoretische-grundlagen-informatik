@@ -11,9 +11,10 @@
 \usepackage{animate}
 \usepackage{amsmath}
 \usepackage{verbatim}
+\usepackage{mathrsfs}
 %\usetheme{Boadilla}
 %\usecolortheme{crane}
-\title{Mathematik I: \\Theoretische Grundlagen der Informatik}
+\title[Mathematik I]{Mathematik I: \\Theoretische Grundlagen der Informatik}
 
 
 \author{Prof.\ Dr.-Ing. Sebastian Schlesinger}
@@ -23,15 +24,7 @@
  \begin{frame}
 \titlepage
 \end{frame}
-\begin{frame}
-\frametitle{Lernziele dieser Vorlesung}
- 
-\begin{itemize}
-\item Verst"andnis erlangen f"ur die grundlegende mathematische Notation
-\item Prinzipien der Aussagenlogik verstehen
-\item Grundsetzliches Vorgehen beim F\"uhren mathematischer Beweise verstehen
-\end{itemize}
-\end{frame}
+
 %\begin{frame}
 % \frametitle{Outline}
 % \tableofcontents
@@ -107,6 +100,8 @@ und k"onnen mit logischen Operationen verkn"upft werden. Grundlegende mathematis
   \end{itemize}
    
 \end{frame}
+
+
 \begin{frame}
   \frametitle{Gesetze f"ur logische Operationen}
   F"ur logische Operationen gelten die folgenden Identit"aten. 
@@ -117,6 +112,28 @@ und k"onnen mit logischen Operationen verkn"upft werden. Grundlegende mathematis
    
 \end{frame}
 
+\begin{frame}{Pr"adikatenlogik}
+  Wir f"uhren nun Quantoren ein. Neben den atomaren Aussagen der Aussagenlogik m"ochte man in der Lage sein, Aussagen zu formulieren, die praktisch von Parametern abh"angen.
+  \begin{definition}[Quantoren]
+    Wir definieren folgende Notation:
+    \begin{itemize}
+      \item Mit $\forall x:A(x)$ definieren wir, dass eine Aussage $A$, die eine Variable $x$ beinhaltet, f"ur alle Werte von $x$ gelten soll ("ublicherweise wird dann auch eine Grundmenge, aus denen die $x$ stammen sollen, angegeben).
+      \item Mit $\exists x:A(x)$ dr"ucken wir aus, dass es ein $x$ geben soll, so dass $A(x)$ gilt.
+    \end{itemize}
+  \end{definition}
+
+  Die Aussagen $A(x)$ k"onnen komplexe Aussagen mit Verkn"upfungen sein und es lassen sich auch Quantoren kombinieren und man k"urzt oft ab.
+\end{frame}
+
+\begin{frame}{Beweismethoden}
+  Wie f"uhrt man nun einen Beweis? Es gibt verschiedene Beweismethoden. Die wichtigsten sind:
+  \begin{itemize}
+    \item Direkter Beweis: Man beweist direkt $A\Rightarrow B$, also dass $B$ aus der Annahme von $A$ folgt.
+    \item Man verwendet die Umkehrung von $A\Rightarrow B$, also $\neg B\Rightarrow\neg A$
+    \item Indirekter Beweis: Man nimmt an, $A$ gelte und folgert dann $B$, was aber im Widerspruch zu $A$ ist. Praktisch folgert man also $A\wedge\neq A$, was falsch sein muss. Also muss die Annahme falsch gewesen sein und da sie das Gegenteil von dem ist was man beweisen m"ochte, ist der Beweis komplett.
+  \end{itemize}
+  
+\end{frame}
 \begin{frame}
   \frametitle{Mengendefinition}
   \begin{definition}[Naive Mengendefinition]
@@ -137,6 +154,14 @@ und k"onnen mit logischen Operationen verkn"upft werden. Grundlegende mathematis
     \[\{2,3,5,7\}=\{2,2,2,3,3,5,7\}\]
   \end{frame}
 
+\begin{frame}{Mengennotation}
+Mengen k"onnen definiert werden durch
+\begin{itemize}
+  \item Aufz"ahlung der Elemente
+  \item Formulierung von Bedingungen in der Form $M:=\{x|p(x)\}$, wobei $p$ ein \textit{Pr"adikat}, also eine Aussage ist, die $x$ enth"alt, so dass man jeweils bei Einsetzen von $x$ entscheiden kann, ob sie wahr (und damit das Element zur Menge geh"ort) oder falsch ist (und damit das Element $x$ nicht zu $M$ geh"ort).
+\end{itemize}
+  Wir schreiben zur Abk"urzung auch $M:=\{x\in N|p(x)\}$ statt $M:=\{x|x\in N\wedge p(x)\}$.
+\end{frame}
 \begin{frame}
   \frametitle{Besondere Mengen}
   Eine besonders wichtige Menge ist die leere Menge $\emptyset = \{\}$, die keinerlei
@@ -144,7 +169,7 @@ Elemente enth"alt.
 
 In der Mathematik hat man es h"aufig auch mit unendlichen Mengen zu
 tun (Mengen, die aus unendlich vielen Objekten bestehen).
-Solche Mengen k:onnen durch Angabe einer Eigenschaft, welche die
+Solche Mengen k"onnen durch Angabe einer Eigenschaft, welche die
 Elemente der Menge auszeichnet, spezifiziert werden.
 
 Beispiele:
@@ -156,6 +181,131 @@ Beispiele:
 \end{itemize}
 \end{frame}
 
+\begin{frame}{Warum naive Mengenlehre?}
+  Die \glqq Definition\grqq der Menge ist anf"allig f"ur Widerspr"uche, z.B. die \textbf{Russelsche Antinomie}:
+
+  Man bilde die Menge aller Mengen, die sich nicht selbst als Element enthalten, in Formeln:
+  \[M:=\{N|N\notin N\}\]
+  Frage: Gilt $M\in M$? Das f"uhrt auf einen Widerspruch.
+  
+  Daher hat man die Mengenlehre mit dem \textbf{Zermelo-Fraenkelschen Axiomensystem} auf ein solides Fundament gehoben. Mehr dazu im optionalen Inhalt (ist zu kompliziert f"ur eine erste Einf"uhrung).
+\end{frame}
+
+\begin{frame}{Teilmengen}
+  \begin{definition}[Teilmenge]
+    Seien $A$ und $B$ Mengen. $A\subseteq B$ bedeutet $A$ ist \textit{Teilmenge} von $B$, genau dann, wenn 
+    \[\forall x:x\in A\Rightarrow x\in B\] oder "aquivalent dazu \[\forall x\in A:x\in B\]
+  \end{definition}
+  
+  \begin{lemma}[Gleichheit von Mengen]
+    Seien $A$ und $B$ Mengen. Es ist $A=B$ genau dann, wenn $\forall x:x\in A\Leftrightarrow x\in B$, was wiederum "aquivalent ist zu
+    \[A\subseteq B\wedge B\subseteq A\]  
+  \end{lemma}
+  Um also die Gleichheit von zwei Mengen zu zeigen beweist man "ublicherweise erst $A\subseteq B$ und dann $B\subseteq A$.
+\end{frame}
+
+\begin{frame}{Mengenoperationen}
+  \begin{definition}[Mengenoperationen]
+    Seien $A$ und $B$ Mengen. Wir definieren:
+    \begin{itemize}
+      \item $A\cap B:=\{x|x\in A\wedge x\in B\}$, den \textit{Schnitt} von $A$ und $B$
+      \item $A\cup B:=\{x|x\in A\vee x\in B\}$, die \textit{Vereinigung} von $A$ und $B$
+      \item $A\backslash B:=\{x\in A|x\notin B\}$, die \textit{Differenz} von $A$ und $B$
+    \end{itemize}
+  \end{definition}
+\end{frame}
+
+\begin{frame}{Venn-Diagramme}
+  Die Operationen lassen sich in \textbf{Venn-Diagrammen} visualisieren.
+  \begin{tikzpicture}
+ 
+    % Set A
+    \node [draw,
+        circle,
+        minimum size =3cm,
+        label={135:$A$}] (A) at (0,0){};
+     
+    % Set B
+    \node [draw,
+        circle,
+        minimum size =3cm,
+        label={45:$B$}] (B) at (1.8,0){};
+     
+    % Set intersection label
+    \node at (0.9,0) {$A\cap B$};
+     
+    \end{tikzpicture}
+    \begin{tikzpicture}
+ 
+      % Set A
+      \node [circle,
+          fill=orange,
+          minimum size =3cm,
+          label={135:$A$}] (A) at (0,0){};
+       
+      % Set B
+      \node [circle,
+          fill=orange,
+          minimum size =3cm,
+          label={45:$B$}] (B) at (1.8,0){};
+       
+      % Circles outline
+      \draw[white,thick] (0,0) circle(1.5cm);
+      \draw[white,thick] (1.8,0) circle(1.5cm);
+       
+      % Union text label
+      \node[orange!90!black] at (0.9,1.8) {$A\cup B$};
+       
+      \end{tikzpicture}
+    
+      \begin{tikzpicture}[thick,
+        set/.style = { circle, minimum size = 3cm}]
+     
+    % Set A
+    \node[set,fill=orange,label={135:$A$}] (A) at (0,0) {};
+     
+    % Set B
+    \node[set,fill=white,label={45:$B$}] (B) at (0:2) {};
+     
+    % Circles outline
+    \draw (0,0) circle(1.5cm);
+    \draw (2,0) circle(1.5cm);
+     
+    % Difference text label
+    \node[left,white] at (A.center){$A-B$};
+     
+    \end{tikzpicture}
+\end{frame}
+
+\begin{frame}{Weitere Mengen und Eigenschaften}
+  \begin{definition}[Potenzmenge]
+    Mit \[\mathscr{P}(A):=2^A:=\{B|B\subseteq A\}\] bezeichnen wir die \textbf{Potenzmenge}, die Menge aller Teilmengen von $A$.
+
+  \end{definition}
+  \begin{definition}[Disjunktheit]
+    Zwei Mengen $A$ und $B$ sind \textit{disjunkt}, falls $A\cap B=\emptyset$ gilt.
+  \end{definition}
+\end{frame}
+
+\begin{frame}{Beispiele f"ur Mengenaussagen}
+Es gilt:
+\begin{itemize}
+  \item $\forall A:\emptyset\subseteq A$
+  \item $\forall A:A\subseteq A$
+  \item $\mathbb{N}\subseteq\mathbb{Z}\subseteq\mathbb{Q}\subseteq\mathbb{R}$
+  \item $\{1,2,3\}\cap\{4,5,6\}=\emptyset$
+  \item $\mathscr{P}(\{1,2\})=\{\emptyset,\{1\},\{2\},\{1.2\}\}$
+  \item $\mathscr{P}(\emptyset)=\{\emptyset\}$
+  \item $\forall A: A\cap\emptyset=\emptyset$
+  \item $\forall A:A\cup\emptyset=A$
+  \item $\forall A,B,C: A\cap(B\cup C)=(A\cap B)\cup (B\cap C)$
+  \item $\forall A,B,C: A\cup (B\cap C)=(A\cup B)\cap (A\cup C)$
+  \item $\forall A,B,C: A\backslash(B\cup C)=(A\backslash B)\cap (A\backslash C)$
+  \item $\forall A,B,C: A\backslash(B\cap C)=(A\backslash B)\cap (A\backslash C)$
+\end{itemize}
+
+
+\end{frame}
   % \begin{block}{Cryptographic System}
   %   An encryption is a function $enc:K\times P\to C$ from the cartesian product of the set of keys $K$ and the set of plaintexts $P$ to the set cyphertexts $C$. A decryption is a function $dec: K\times C\to P$. A suitable decryption has a key $k'$ such that \[\forall k\in K\forall x\in P: dec(k',enc(k,x))=x\]
   %   Alternative notation for $enc(k,m)$ is $enc_k(m)$.
