@@ -107,6 +107,17 @@ und k"onnen mit logischen Operationen verkn"upft werden. Grundlegende mathematis
   \end{itemize}
    
 \end{frame}
+
+\begin{frame}{Beweismethoden}
+  Wie f"uhrt man nun einen Beweis? Es gibt verschiedene Beweismethoden. Die wichtigsten sind:
+  \begin{itemize}
+    \item Direkter Beweis: Man beweist direkt $A\Rightarrow B$, also dass $B$ aus der Annahme von $A$ folgt.
+    \item Man verwendet die Umkehrung von $A\Rightarrow B$, also $\neg B\Rightarrow\neg A$
+    \item Indirekter Beweis: Man nimmt an, $A$ gelte und folgert dann $B$, was aber im Widerspruch zu $A$ ist. Praktisch folgert man also $A\wedge\neq A$, was falsch sein muss. Also muss die Annahme falsch gewesen sein und da sie das Gegenteil von dem ist was man beweisen m"ochte, ist der BEweis komplett.
+  \end{itemize}
+  
+\end{frame}
+
 \begin{frame}
   \frametitle{Gesetze f"ur logische Operationen}
   F"ur logische Operationen gelten die folgenden Identit"aten. 
@@ -137,6 +148,14 @@ und k"onnen mit logischen Operationen verkn"upft werden. Grundlegende mathematis
     \[\{2,3,5,7\}=\{2,2,2,3,3,5,7\}\]
   \end{frame}
 
+\begin{frame}{Mengennotation}
+Mengen k"onnen definiert werden durch
+\begin{itemize}
+  \item Aufz"ahlung der Elemente
+  \item Formulierung von Bedingungen in der Form $M:=\{x|p(x)\}$, wobei $p$ ein \textit{Pr"adikat}, also eine Aussage ist, die $x$ enth"alt, so dass man jeweils bei Einsetzen von $x$ entscheiden kann, ob sie wahr (und damit das Element zur Menge geh"ort) oder falsch ist (und damit das Element $x$ nicht zu $M$ geh"ort).
+\end{itemize}
+  Wir schreiben zur Abk"urzung auch $M:=\{x\in N|p(x)\}$ statt $M:=\{x|x\in N\wedge p(x)\}$.
+\end{frame}
 \begin{frame}
   \frametitle{Besondere Mengen}
   Eine besonders wichtige Menge ist die leere Menge $\emptyset = \{\}$, die keinerlei
@@ -144,7 +163,7 @@ Elemente enth"alt.
 
 In der Mathematik hat man es h"aufig auch mit unendlichen Mengen zu
 tun (Mengen, die aus unendlich vielen Objekten bestehen).
-Solche Mengen k:onnen durch Angabe einer Eigenschaft, welche die
+Solche Mengen k"onnen durch Angabe einer Eigenschaft, welche die
 Elemente der Menge auszeichnet, spezifiziert werden.
 
 Beispiele:
@@ -156,6 +175,15 @@ Beispiele:
 \end{itemize}
 \end{frame}
 
+\begin{frame}{Warum naive Mengenlehre?}
+  Die \glqq Definition\grqq der Menge ist anf"allig f"ur Widerspr"uche, z.B. die \textbf{Russelsche Antinomie}:
+
+  Man bilde die Menge aller Mengen, die sich nicht selbst als Element enthalten, in Formeln:
+  \[M:=\{N|N\notin N\}\]
+  Frage: Gilt $M\in M$? Das f"uhrt auf einen Widerspruch.
+  
+  Daher hat man die Mengenlehre mit dem \textbf{Zermelo-Fraenkelschen Axiomensystem} auf ein solides Fundament gehoben. Mehr dazu im optionalen Inhalt (ist zu kompliziert f"ur eine erste Einf"uhrung).
+\end{frame}
   % \begin{block}{Cryptographic System}
   %   An encryption is a function $enc:K\times P\to C$ from the cartesian product of the set of keys $K$ and the set of plaintexts $P$ to the set cyphertexts $C$. A decryption is a function $dec: K\times C\to P$. A suitable decryption has a key $k'$ such that \[\forall k\in K\forall x\in P: dec(k',enc(k,x))=x\]
   %   Alternative notation for $enc(k,m)$ is $enc_k(m)$.
