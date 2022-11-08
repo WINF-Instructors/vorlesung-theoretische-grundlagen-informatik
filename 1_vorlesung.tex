@@ -11,9 +11,10 @@
 \usepackage{animate}
 \usepackage{amsmath}
 \usepackage{verbatim}
+\usepackage{mathrsfs}
 %\usetheme{Boadilla}
 %\usecolortheme{crane}
-\title{Mathematik I: \\Theoretische Grundlagen der Informatik}
+\title[Mathematik I]{Mathematik I: \\Theoretische Grundlagen der Informatik}
 
 
 \author{Prof.\ Dr.-Ing. Sebastian Schlesinger}
@@ -23,15 +24,7 @@
  \begin{frame}
 \titlepage
 \end{frame}
-\begin{frame}
-\frametitle{Lernziele dieser Vorlesung}
- 
-\begin{itemize}
-\item Verst"andnis erlangen f"ur die grundlegende mathematische Notation
-\item Prinzipien der Aussagenlogik verstehen
-\item Grundsetzliches Vorgehen beim F\"uhren mathematischer Beweise verstehen
-\end{itemize}
-\end{frame}
+
 %\begin{frame}
 % \frametitle{Outline}
 % \tableofcontents
@@ -198,7 +191,121 @@ Beispiele:
   Daher hat man die Mengenlehre mit dem \textbf{Zermelo-Fraenkelschen Axiomensystem} auf ein solides Fundament gehoben. Mehr dazu im optionalen Inhalt (ist zu kompliziert f"ur eine erste Einf"uhrung).
 \end{frame}
 
+\begin{frame}{Teilmengen}
+  \begin{definition}[Teilmenge]
+    Seien $A$ und $B$ Mengen. $A\subseteq B$ bedeutet $A$ ist \textit{Teilmenge} von $B$, genau dann, wenn 
+    \[\forall x:x\in A\Rightarrow x\in B\] oder "aquivalent dazu \[\forall x\in A:x\in B\]
+  \end{definition}
+  
+  \begin{lemma}[Gleichheit von Mengen]
+    Seien $A$ und $B$ Mengen. Es ist $A=B$ genau dann, wenn $\forall x:x\in A\Leftrightarrow x\in B$, was wiederum "aquivalent ist zu
+    \[A\subseteq B\wedge B\subseteq A\]  
+  \end{lemma}
+  Um also die Gleichheit von zwei Mengen zu zeigen beweist man "ublicherweise erst $A\subseteq B$ und dann $B\subseteq A$.
+\end{frame}
 
+\begin{frame}{Mengenoperationen}
+  \begin{definition}[Mengenoperationen]
+    Seien $A$ und $B$ Mengen. Wir definieren:
+    \begin{itemize}
+      \item $A\cap B:=\{x|x\in A\wedge x\in B\}$, den \textit{Schnitt} von $A$ und $B$
+      \item $A\cup B:=\{x|x\in A\vee x\in B\}$, die \textit{Vereinigung} von $A$ und $B$
+      \item $A\backslash B:=\{x\in A|x\notin B\}$, die \textit{Differenz} von $A$ und $B$
+    \end{itemize}
+  \end{definition}
+\end{frame}
+
+\begin{frame}{Venn-Diagramme}
+  Die Operationen lassen sich in \textbf{Venn-Diagrammen} visualisieren.
+  \begin{tikzpicture}
+ 
+    % Set A
+    \node [draw,
+        circle,
+        minimum size =3cm,
+        label={135:$A$}] (A) at (0,0){};
+     
+    % Set B
+    \node [draw,
+        circle,
+        minimum size =3cm,
+        label={45:$B$}] (B) at (1.8,0){};
+     
+    % Set intersection label
+    \node at (0.9,0) {$A\cap B$};
+     
+    \end{tikzpicture}
+    \begin{tikzpicture}
+ 
+      % Set A
+      \node [circle,
+          fill=orange,
+          minimum size =3cm,
+          label={135:$A$}] (A) at (0,0){};
+       
+      % Set B
+      \node [circle,
+          fill=orange,
+          minimum size =3cm,
+          label={45:$B$}] (B) at (1.8,0){};
+       
+      % Circles outline
+      \draw[white,thick] (0,0) circle(1.5cm);
+      \draw[white,thick] (1.8,0) circle(1.5cm);
+       
+      % Union text label
+      \node[orange!90!black] at (0.9,1.8) {$A\cup B$};
+       
+      \end{tikzpicture}
+    
+      \begin{tikzpicture}[thick,
+        set/.style = { circle, minimum size = 3cm}]
+     
+    % Set A
+    \node[set,fill=orange,label={135:$A$}] (A) at (0,0) {};
+     
+    % Set B
+    \node[set,fill=white,label={45:$B$}] (B) at (0:2) {};
+     
+    % Circles outline
+    \draw (0,0) circle(1.5cm);
+    \draw (2,0) circle(1.5cm);
+     
+    % Difference text label
+    \node[left,white] at (A.center){$A-B$};
+     
+    \end{tikzpicture}
+\end{frame}
+
+\begin{frame}{Weitere Mengen und Eigenschaften}
+  \begin{definition}[Potenzmenge]
+    Mit \[\mathscr{P}(A):=2^A:=\{B|B\subseteq A\}\] bezeichnen wir die \textbf{Potenzmenge}, die Menge aller Teilmengen von $A$.
+
+  \end{definition}
+  \begin{definition}[Disjunktheit]
+    Zwei Mengen $A$ und $B$ sind \textit{disjunkt}, falls $A\cap B=\emptyset$ gilt.
+  \end{definition}
+\end{frame}
+
+\begin{frame}{Beispiele f"ur Mengenaussagen}
+Es gilt:
+\begin{itemize}
+  \item $\forall A:\emptyset\subseteq A$
+  \item $\forall A:A\subseteq A$
+  \item $\mathbb{N}\subseteq\mathbb{Z}\subseteq\mathbb{Q}\subseteq\mathbb{R}$
+  \item $\{1,2,3\}\cap\{4,5,6\}=\emptyset$
+  \item $\mathscr{P}(\{1,2\})=\{\emptyset,\{1\},\{2\},\{1.2\}\}$
+  \item $\mathscr{P}(\emptyset)=\{\emptyset\}$
+  \item $\forall A: A\cap\emptyset=\emptyset$
+  \item $\forall A:A\cup\emptyset=A$
+  \item $\forall A,B,C: A\cap(B\cup C)=(A\cap B)\cup (B\cap C)$
+  \item $\forall A,B,C: A\cup (B\cap C)=(A\cup B)\cap (A\cup C)$
+  \item $\forall A,B,C: A\backslash(B\cup C)=(A\backslash B)\cap (A\backslash C)$
+  \item $\forall A,B,C: A\backslash(B\cap C)=(A\backslash B)\cap (A\backslash C)$
+\end{itemize}
+
+
+\end{frame}
   % \begin{block}{Cryptographic System}
   %   An encryption is a function $enc:K\times P\to C$ from the cartesian product of the set of keys $K$ and the set of plaintexts $P$ to the set cyphertexts $C$. A decryption is a function $dec: K\times C\to P$. A suitable decryption has a key $k'$ such that \[\forall k\in K\forall x\in P: dec(k',enc(k,x))=x\]
   %   Alternative notation for $enc(k,m)$ is $enc_k(m)$.
