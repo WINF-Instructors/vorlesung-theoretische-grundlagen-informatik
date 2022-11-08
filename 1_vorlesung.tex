@@ -103,7 +103,7 @@ und k"onnen mit logischen Operationen verkn"upft werden. Grundlegende mathematis
   \begin{itemize}
     \item Assoziativgesetze: \[(A\wedge B)\wedge C = A\wedge(B\wedge C)\] \[(A\vee B)\vee C = A\vee(B\vee C)\]
     \item Kommutativgesetze: \[A\wedge B = B\wedge A\]\[A\vee B = B\vee A\]
-    \item Distributivgesetze: \[A \wedge (B\vee C) = (A\vee C)\wedge (B\vee C)\] \[A\vee (B\wedge C) = (A\wedge C)\vee (B\wedge C)\]
+    \item Distributivgesetze: \[A \wedge (B\vee C) = (A\wedge C)\vee (B\wedge C)\] \[A\vee (B\wedge C) = (A\vee C)\wedge (B\vee C)\]
   \end{itemize}
    
 \end{frame}
@@ -116,6 +116,46 @@ und k"onnen mit logischen Operationen verkn"upft werden. Grundlegende mathematis
   \end{itemize}
    
 \end{frame}
+
+\begin{frame}
+  \frametitle{Mengendefinition}
+  \begin{definition}[Naive Mengendefinition]
+    Eine Menge ist die Zusammenfassung von bestimmten unterschiedlichen
+    Objekten (die Elemente der Menge) zu einem neuen Ganzen.
+    Wir schreiben $x\in M$, falls das Objekt $x$ zur Menge $M$ geh"ort.
+    Wir schreiben $x\notin M$, falls das Objekt $x$ nicht zur Menge $M$ geh"ort.
+    Falls $x\in M$ und $y\in M$ gilt, schreiben wir auch $x, y \in M$.
+    Eine Menge, welche nur aus endlich vielen Objekten besteht (eine endliche
+    Menge), kann durch explizite Auflistung dieser Elemente spezifiziert
+    werden.
+  \end{definition}
+    Beispiel: $M=\{2,3,5,7\}$.
+
+    Hierbei spielt die Reihenfolge der Auflistung keine Rolle:
+    \[\{2,3,5,7\}=\{7,5,3,2\}\]
+    Auch Mehrfachauflistungen spielen keine Rolle:
+    \[\{2,3,5,7\}=\{2,2,2,3,3,5,7\}\]
+  \end{frame}
+
+\begin{frame}
+  \frametitle{Besondere Mengen}
+  Eine besonders wichtige Menge ist die leere Menge $\emptyset = \{\}$, die keinerlei
+Elemente enth"alt.
+
+In der Mathematik hat man es h"aufig auch mit unendlichen Mengen zu
+tun (Mengen, die aus unendlich vielen Objekten bestehen).
+Solche Mengen k:onnen durch Angabe einer Eigenschaft, welche die
+Elemente der Menge auszeichnet, spezifiziert werden.
+
+Beispiele:
+\begin{itemize}
+  \item $\mathbb{N}=\{0,1,2,3,\dots\}$
+  \item $\mathbb{Z}=\{\dots,-2,-1,0,1,2,\dots\}$
+  \item $\mathbb{Q}=\{\frac{p}{q}|p,q\in\mathbb{Z}, q\neq 0\}$
+  
+\end{itemize}
+\end{frame}
+
   % \begin{block}{Cryptographic System}
   %   An encryption is a function $enc:K\times P\to C$ from the cartesian product of the set of keys $K$ and the set of plaintexts $P$ to the set cyphertexts $C$. A decryption is a function $dec: K\times C\to P$. A suitable decryption has a key $k'$ such that \[\forall k\in K\forall x\in P: dec(k',enc(k,x))=x\]
   %   Alternative notation for $enc(k,m)$ is $enc_k(m)$.
