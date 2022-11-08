@@ -108,15 +108,6 @@ und k"onnen mit logischen Operationen verkn"upft werden. Grundlegende mathematis
    
 \end{frame}
 
-\begin{frame}{Beweismethoden}
-  Wie f"uhrt man nun einen Beweis? Es gibt verschiedene Beweismethoden. Die wichtigsten sind:
-  \begin{itemize}
-    \item Direkter Beweis: Man beweist direkt $A\Rightarrow B$, also dass $B$ aus der Annahme von $A$ folgt.
-    \item Man verwendet die Umkehrung von $A\Rightarrow B$, also $\neg B\Rightarrow\neg A$
-    \item Indirekter Beweis: Man nimmt an, $A$ gelte und folgert dann $B$, was aber im Widerspruch zu $A$ ist. Praktisch folgert man also $A\wedge\neq A$, was falsch sein muss. Also muss die Annahme falsch gewesen sein und da sie das Gegenteil von dem ist was man beweisen m"ochte, ist der BEweis komplett.
-  \end{itemize}
-  
-\end{frame}
 
 \begin{frame}
   \frametitle{Gesetze f"ur logische Operationen}
@@ -128,6 +119,28 @@ und k"onnen mit logischen Operationen verkn"upft werden. Grundlegende mathematis
    
 \end{frame}
 
+\begin{frame}{Pr"adikatenlogik}
+  Wir f"uhren nun Quantoren ein. Neben den atomaren Aussagen der Aussagenlogik m"ochte man in der Lage sein, Aussagen zu formulieren, die praktisch von Parametern abh"angen.
+  \begin{definition}[Quantoren]
+    Wir definieren folgende Notation:
+    \begin{itemize}
+      \item Mit $\forall x:A(x)$ definieren wir, dass eine Aussage $A$, die eine Variable $x$ beinhaltet, f"ur alle Werte von $x$ gelten soll ("ublicherweise wird dann auch eine Grundmenge, aus denen die $x$ stammen sollen, angegeben).
+      \item Mit $\exists x:A(x)$ dr"ucken wir aus, dass es ein $x$ geben soll, so dass $A(x)$ gilt.
+    \end{itemize}
+  \end{definition}
+
+  Die Aussagen $A(x)$ k"onnen komplexe Aussagen mit Verkn"upfungen sein und es lassen sich auch Quantoren kombinieren und man k"urzt oft ab.
+\end{frame}
+
+\begin{frame}{Beweismethoden}
+  Wie f"uhrt man nun einen Beweis? Es gibt verschiedene Beweismethoden. Die wichtigsten sind:
+  \begin{itemize}
+    \item Direkter Beweis: Man beweist direkt $A\Rightarrow B$, also dass $B$ aus der Annahme von $A$ folgt.
+    \item Man verwendet die Umkehrung von $A\Rightarrow B$, also $\neg B\Rightarrow\neg A$
+    \item Indirekter Beweis: Man nimmt an, $A$ gelte und folgert dann $B$, was aber im Widerspruch zu $A$ ist. Praktisch folgert man also $A\wedge\neq A$, was falsch sein muss. Also muss die Annahme falsch gewesen sein und da sie das Gegenteil von dem ist was man beweisen m"ochte, ist der Beweis komplett.
+  \end{itemize}
+  
+\end{frame}
 \begin{frame}
   \frametitle{Mengendefinition}
   \begin{definition}[Naive Mengendefinition]
@@ -184,6 +197,8 @@ Beispiele:
   
   Daher hat man die Mengenlehre mit dem \textbf{Zermelo-Fraenkelschen Axiomensystem} auf ein solides Fundament gehoben. Mehr dazu im optionalen Inhalt (ist zu kompliziert f"ur eine erste Einf"uhrung).
 \end{frame}
+
+
   % \begin{block}{Cryptographic System}
   %   An encryption is a function $enc:K\times P\to C$ from the cartesian product of the set of keys $K$ and the set of plaintexts $P$ to the set cyphertexts $C$. A decryption is a function $dec: K\times C\to P$. A suitable decryption has a key $k'$ such that \[\forall k\in K\forall x\in P: dec(k',enc(k,x))=x\]
   %   Alternative notation for $enc(k,m)$ is $enc_k(m)$.
