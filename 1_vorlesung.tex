@@ -88,6 +88,10 @@ und k"onnen mit logischen Operationen verkn"upft werden. Grundlegende mathematis
     f & f & w & f & f & w & w
     
   \end{tabular}
+  
+  \vspace{5mm}
+  \textbf{Hinweis:} Statt $w$ f"ur \textit{wahr} und $f$ f"ur \textit{falsch} werden auch die Symbole $\top$ und $\bot$ verwendet.
+  
 \end{frame}
 
 \begin{frame}
@@ -96,7 +100,7 @@ und k"onnen mit logischen Operationen verkn"upft werden. Grundlegende mathematis
   \begin{itemize}
     \item Assoziativgesetze: \[(A\wedge B)\wedge C = A\wedge(B\wedge C)\] \[(A\vee B)\vee C = A\vee(B\vee C)\]
     \item Kommutativgesetze: \[A\wedge B = B\wedge A\]\[A\vee B = B\vee A\]
-    \item Distributivgesetze: \[A \wedge (B\vee C) = (A\wedge C)\vee (B\wedge C)\] \[A\vee (B\wedge C) = (A\vee C)\wedge (B\vee C)\]
+    \item Distributivgesetze: \[A \wedge (B\vee C) = (A\wedge B)\vee (A\wedge C)\] \[A\vee (B\wedge C) = (A\vee B)\wedge (A\vee C)\]
   \end{itemize}
    
 \end{frame}
@@ -108,6 +112,7 @@ und k"onnen mit logischen Operationen verkn"upft werden. Grundlegende mathematis
   \begin{itemize}
     \item De Morgansche Regeln: \[\neg(A\wedge B) = (\neg A)\vee(\neg B)\]\[\neg(A\vee B) = (\neg A)\wedge(\neg B)\]
     \item Idempotenz: \[\neg(\neg A) = A\]\[A\vee A = A\]\[A\wedge A = A\]
+    \item K"urzungsregeln: \[A\vee\bot=A\]\[A\wedge\top=A\]
   \end{itemize}
    
 \end{frame}
