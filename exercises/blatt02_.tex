@@ -77,16 +77,27 @@ $A\subseteq B\Leftrightarrow A\cup B=B$
 \glqq $\Rightarrow$\grqq :\\
 Gelte $A\subseteq B$. Wir zeigen $A\cup B=B$.
 
+Dazu zeigen wir erst $A\cup B\subseteq B$ und sp"ater $B\subseteq A\cup B$.
+
+\glqq $\subseteq$ \grqq:
+
 Sei $x\in A\cup B$
 
 $\Leftrightarrow x\in A\vee x\in B$
 
-$\Leftrightarrow x\in B$, weil $A\subseteq B (x\in A\Rightarrow x\in B$), was zu zeigen war.
+$\Rightarrow x\in B$, weil $A\subseteq B (x\in A\Rightarrow x\in B$), was zu zeigen war.
+
+\glqq$\supseteq$\grqq:
+
+Nun zeigen wir noch $B\subseteq A\cup B$. 
+
+Sei dazu $x\in B$. Dann ist $x\in A\cup B$ (Vereinigung von $B$ mit irgendwas), was zu zeigen war.
 
 \glqq$\Leftarrow$\grqq:\\
 Gelte $A\cup B=B$. Wir zeigen $A\subseteq B$.
 
 Sei $x\in A$. Dann ist $x\in A\cup B$ (ich kann was Beliebiges dazu vereinigen). Wegen $A\cup B=B$ gilt insbesondere $A\cup B\subseteq B$, also $x\in A\cup B\Rightarrow x\in B$, was zu zeigen war.
+
 \qed
 
 \end{loesung}
@@ -99,7 +110,7 @@ Seien $A,B,C$ Mengen. Beweisen Sie \[(A\cap B)\cup C=A\cap (B\cup C)\Leftrightar
   \textbf{Beweis:}\\
 \glqq $\Rightarrow$\grqq: Gelte $(A\cap B)\cup C=A\cap(B\cup C)$. Wir zeigen $C\subseteq A$.
 
-Sei dazu $x\in C$. Dann ist $x\in (A\cap B)\cup C$ (Weil $x\in C$ kann ich was beliebiges dazu vereinigen) und nach Voraussetung auch 
+Sei dazu $x\in C$. Dann ist $x\in (A\cap B)\cup C$ (Weil $x\in C$ kann ich was beliebiges dazu vereinigen) und nach Voraussetzung auch 
 $x\in A\cap (B\cup C)$. Damit insbesonder $x\in A$, was zu zeigen war.
 
 \glqq $\Leftarrow$\grqq:\\
