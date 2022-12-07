@@ -20,7 +20,7 @@
 % 	Aufgabe 1.4: Mittwoch, 20. April, 18:00 Uhr
 % \end{notes}
 
-\aufgabetitel{$5$}{Mengen}
+\aufgabetitel{$3$}{Mengen}\\
 Bestimmen Sie die folgenden Mengen:
 \begin{enumerate}[(i)]
   \item $(\{1,2\}\times\{3,4\})\cup\{1,2,3\}$
@@ -37,7 +37,58 @@ Bestimmen Sie die folgenden Mengen:
 \end{enumerate}
 \end{loesung}
 
-\aufgabetitel{$4$}{Mengenbeweis}\\
+\aufgabetitel{$11$}{Aussagen "uber Mengen}\\
+Es sei $A=\{1,2\}$ und $B=\{1,2,3\}$. Welche der folgenden Beziehungen sind richtig?
+\begin{enumerate}[(i)]
+  \item $1\in A$
+  \item $\{1\}\subseteq A$
+  \item $1\in\mathscr{P}(A)$
+  \item $\{1\}\in\mathscr{P}(A)$
+  \item $\mathscr{P}(A)\subseteq\mathscr{P}(B)$
+  \item $A\in\mathscr{P}(B)$
+  \item $\emptyset\in\mathscr{P}(A)$
+  \item $\emptyset\subseteq\mathscr{P}(A)$
+  \item $\{\{1\},A\}\subseteq\mathscr{P}(A)$
+  \item $(1,2)\in\mathscr{P}(A\times B)$
+  \item $\{1,2\}\times\{1,2\}\in\mathscr{P}(A)\times\mathscr{P}(B)$
+\end{enumerate}
+
+\begin{loesung}
+  \begin{enumerate}[(i)]
+    \item wahr
+    \item wahr
+    \item falsch
+    \item wahr
+    \item wahr
+    \item wahr
+    \item wahr
+    \item wahr
+    \item wahr
+    \item wahr
+    \item falsch
+  \end{enumerate}
+\end{loesung}
+
+\aufgabetitel{$4$}{Kartesische Produkte}\\
+Es sei $A=\{1,2\}$ und $B=\{2,3,4\}$.
+Bilden Sie die folgenden Mengen:
+\begin{enumerate}[(i)]
+  \item $A\times B$
+  \item $(A\times A)\cap (B\times B)$
+  \item $(A\times B)\backslash (B\times B)$
+  \item $A\times A\times A$
+\end{enumerate}
+
+\begin{loesung}
+  \begin{enumerate}[(i)]
+    \item $A\times B=\{(1,2),(1,3),(1,4),(2,2),(2,3),(2,4)\}$
+    \item $(A\times A)\cap (B\times B)=\{(1,1),(1,2),(2,1),(2,2)\}\cap\{(2,2),(2,3),(2,4),(3,2),(3,3),(3,4),(4,2),(4,3),(4,4)\}=\{(2,2)\}$
+    \item $(A\times B)\backslash (B\times B)=\{(1,2),(1,3),(1,4)\}$
+    \item $A\times A\times A=\{(1,1,1),(1,1,2),(1,2,1),(2,1,1),(1,2,2),(2,1,2),(2,2,1),(2,2,2)\}$
+  \end{enumerate}
+\end{loesung}
+
+\aufgabetitel{$4$}{Potenzmengenbeweis}\\
 Zeigen Sie für beliebige Mengen $A,B$:
 
   \[A\subseteq B\Leftrightarrow \mathscr{P}(A)\subseteq\mathscr{P}(B)\]
@@ -58,6 +109,68 @@ Zeigen Sie für beliebige Mengen $A,B$:
 
   \qed
 \end{loesung}
+\aufgabetitel{$4$}{Mengenbeweis}\\
+Zeigen Sie für beliebige Mengen $A,B$:
+\[A\cap (B\cup A)=A\]
 
+\begin{loesung}
+\glqq$\subseteq$\grqq:
 
+Sei $x\in A\cap(B\cup A)$. Dann ist $x\in A$ (und irgendwas anderem), also $A\cap(B\cup A)\subseteq A$.
+
+\glqq$\supseteq$\grqq:
+
+Sei $x\in A$. Dann ist $x\in A\vee (x\in A\wedge x\in B)$.
+
+$\Leftrightarrow (x\in A\vee x\in A)\wedge (x\in A\vee x\in B)$ (Distributivit"at)
+
+$\Leftrightarrow x\in A\wedge (x\in A\vee x\in B)$
+
+$\Leftrightarrow x\in A\cap(A\cup B)$
+
+\qed
+\end{loesung}
+\aufgabetitel{$4$}{Potenzmengenbeweis}\\
+Zeigen Sie für beliebige Mengen $A,B$:
+\[\mathscr{P}(A\cap B)=\mathscr{P}(A)\cap\mathscr{P}(B)\]
+
+\begin{loesung}
+Sei $M\in\mathscr{P}(A\cap B)$
+
+$\Leftrightarrow M\subseteq A\cap B$
+
+$\Leftrightarrow \forall x\in M:x\in A\cap B$
+
+$\Leftrightarrow \forall x\in M: x\in A\wedge x\in B$
+
+$\Leftrightarrow M\subseteq A\wedge M\subseteq B$
+
+$\Leftrightarrow M\in\mathscr{P}(A)\wedge M\in\mathscr{P}(B)$
+
+$\Leftrightarrow M\in\mathscr{P}(A)\cap\mathscr{P}(B)$
+
+\qed
+\end{loesung}
+
+\aufgabetitel{$2$}{Relationendarstellungen}\\
+Sei $R=\{(1,1),(2,2),(1,3),(2,3),(2,1),(3,1)\}$ eine Relation. Stellen Sie die Relation als Graph und Adjazenzmatrix dar.
+
+\aufgabetitel{$5$}{Relation}\\
+Diese Aufgabe ist etwas schwieriger.
+
+Wir definieren $a\equiv b\Leftrightarrow 3|(a-b)$ mit $a,b\in\mathbb{Z}$. Beschreiben Sie was die Relation ausdr"uckt.
+
+\begin{notes}
+Hinweis: Denken Sie an die Division mit Rest.
+\end{notes}
+
+\begin{loesung}
+ Zwei Zahlen sind in Relation, wenn sie den gleichen Rest bei der Division durch $3$ haben. 
+ 
+ Begr"undung:
+
+ Jede Zahl $a$ l"asst sich darstellen als $a=3\cdot \xi+\eta$ mit geeignetem $a,\xi,\eta$, wobei $\eta\in\{0,1,2\}$.
+ $\eta$ ist der Rest bei der Division von $a$ durch $3$. Hat man nun $b=3\cdot\kappa+\lambda$, dann ist 
+ $a-b=3\cdot\xi+\eta-3\cdot\kappa-\lambda=\eta-\lambda$ und es gilt $3|(a-b)\Leftrightarrow \eta-\lambda=0$, also wenn $a$ und $b$ denselben Rest bei der Division durch $3$ ergeben.
+\end{loesung}
 \end{document}
