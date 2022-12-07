@@ -1,0 +1,63 @@
+%!TEX TS-program = pdflatex
+%!TEX TS-options = -shell-escape
+% % % % %   Die folgenden Zeilen müssen ihre Zeilennummern 4 und 5 behalten !!!    % % % % %
+\newcommand{\printpraesenzlsg}{false}
+\newcommand{\printloesungen}{true}
+\newcommand{\printbewertungen}{false}
+% % % % %   \newcommand{\printloesungen}{false}                                    % % % % %
+\newcommand{\blattnummer}{3}
+%\newcommand{\abgabetermin}{\textcolor{red}{bis 11.04.2022, 09:00 Uhr}}
+\input{include/config.tex}
+
+% Änderungen 2020: Hinweise auf Digitallehre angepasst; Rechnergeschichte entfernt; Blatt 1 und 2 zusammengefasst.
+\begin{document}
+\iforiginal{\input{include/kopf.tex}}
+
+% \begin{notes} \small
+% 	\textbf{Abgabetermine für Blatt 1:}
+	
+% 	Aufgaben 1.2/1.3: Montag, 11. April, 09:00 Uhr \\
+% 	Aufgabe 1.4: Mittwoch, 20. April, 18:00 Uhr
+% \end{notes}
+
+\aufgabetitel{$5$}{Mengen}
+Bestimmen Sie die folgenden Mengen:
+\begin{enumerate}[(i)]
+  \item $(\{1,2\}\times\{3,4\})\cup\{1,2,3\}$
+  \item $\{a,b\}\times\mathscr{P}(\{1,2\})$
+  \item $\mathscr{P}(\{1,2\})\cap\mathscr{P}(\{1\})$
+\end{enumerate}
+
+\begin{loesung}
+\begin{enumerate}[(i)]
+  \item $\{1,2,3,(1,3),(1,4),(2,3),(2,4)\}$
+  \item $\{(a,\emptyset),(b,\emptyset),(a,\{1\}),(b,\{1\}),(a,\{2\}),(b,\{2\}),(a,\{1,2\}),(b,\{1,2\})\}$
+  \item $\{\emptyset, \{1\}\}$
+  
+\end{enumerate}
+\end{loesung}
+
+\aufgabetitel{$4$}{Mengenbeweis}\\
+Zeigen Sie für beliebige Mengen $A,B$:
+
+  \[A\subseteq B\Leftrightarrow \mathscr{P}(A)\subseteq\mathscr{P}(B)\]
+
+
+\begin{loesung}
+  \glqq$\Rightarrow$\grqq:
+
+  Sei $M\in\mathscr{P}(A)$. Wir wollen zeigen, dass dann auch $M\in\mathscr{P}(B)$.
+  
+  Dann ist $M\subseteq A$. Da aber $A\subseteq B$ ist auch $M\subseteq B$ und damit $M\in\mathscr{P}(B)$.
+
+  \glqq$\Leftarrow$\grqq:
+
+  Sei $x\in A$. Wir wollen zeigen, dass dann $x\in B$. Es ist $\{x\}\subseteq A$, also $\{x\}\in\mathscr{P}(A)$.
+  
+  Wegen Voraussetzung ist aber $\mathscr{P}(A)\subseteq\mathscr{P}(B)$, also $\{x\}\in\mathscr{P}(B)$ und damit $x\in B$. 
+
+  \qed
+\end{loesung}
+
+
+\end{document}
