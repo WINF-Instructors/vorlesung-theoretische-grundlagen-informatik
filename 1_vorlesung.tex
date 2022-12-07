@@ -12,6 +12,7 @@
 \usepackage{amsmath}
 \usepackage{verbatim}
 \usepackage{mathrsfs}
+
 %\usetheme{Boadilla}
 %\usecolortheme{crane}
 \title[Mathematik I]{Mathematik I: \\Theoretische Grundlagen der Informatik}
@@ -331,10 +332,46 @@ Es gilt:
  \end{definition}
 \end{frame}
 
-\begin{frame}{}
+\begin{frame}{Beispiele von Relationen}  
 
-  
 \end{frame}
+  
+
+\begin{frame}{Darstellung von Relationen}
+  Eine M"oglichkeit ist die Angabe als Menge, z.B. 
+  \[R=\{(A,B), (A,A), (B,C), (C,B)\}\]
+
+  Eine Alternative ist ein Graph.
+
+  \begin{tikzpicture}{center}
+    \node[shape=circle,draw=black] (A) at (2,2) {A};
+    \node[shape=circle,draw=black] (B) at (0,0) {B};
+    \node[shape=circle,draw=black] (C) at (3,0) {C};
+    
+
+    \path [->] (A) edge (B);
+    \path [->] (B) edge  (C);
+    \path [->] (C) edge  (B);
+    \path[<->] (A) edge [loop left]  (A);
+    
+    
+\end{tikzpicture}
+
+
+
+\end{frame}
+\begin{frame}{Darstellung von Relationen}
+  Eine andere ist die einer Matrix.
+  \[
+  \begin{pmatrix}
+    $1$ & $1$ & $0$ \\
+    $0$ & $0$ & $1$ \\
+    $0$ & $1$ & $0$
+  \end{pmatrix}
+  \]
+  Hier sind die Zeilen der Matrix 
+\end{frame}
+
   % \begin{block}{Cryptographic System}
   %   An encryption is a function $enc:K\times P\to C$ from the cartesian product of the set of keys $K$ and the set of plaintexts $P$ to the set cyphertexts $C$. A decryption is a function $dec: K\times C\to P$. A suitable decryption has a key $k'$ such that \[\forall k\in K\forall x\in P: dec(k',enc(k,x))=x\]
   %   Alternative notation for $enc(k,m)$ is $enc_k(m)$.
