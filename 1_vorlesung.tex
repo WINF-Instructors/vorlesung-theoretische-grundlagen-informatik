@@ -333,7 +333,12 @@ Es gilt:
 \end{frame}
 
 \begin{frame}{Beispiele von Relationen}  
+Ist $M$ die Menge der Menschen, dann ist $R\subseteq M\times M$ die Eltern-Kind-Beziehung ein Beispiel f"ur eine Relation.
+Also $(x,y)\in R\Leftrightarrow x$ ist Elternteil von $y$. 
 
+Ein anderes Beispiel ist die $\leq$ Relation auf $\mathbb{N}$, also $(x,y)\in R\subseteq \mathbb{Z}\times\mathbb{Z}\Leftrightarrow x\leq y$.
+
+Generell kann man eine Relation zwischen zwei Elementen auf zwei Arten notieren: auf die herk"ommliche Weise, also $(x,y)\in R$ oder mittels \textbf{Infixschreibweise} $xRy$.
 \end{frame}
   
 
@@ -369,7 +374,24 @@ Es gilt:
     $0$ & $1$ & $0$
   \end{pmatrix}
   \]
-  Hier sind die Zeilen der Matrix 
+  Hier kann man sich die Zeilen und Spalten der Matrix annotiert mit den Elementen der Grundmengen denken.
+  Etwas formaler: Eine \textbf{Adjazenzmatrix} einer Relation $R\subseteq M\times N$ mit $M=\{x_1,...,x_m\}$ und $N=\{y_1,...,y_n\}$, also $m$ Elementen in $M$ und $n$ Elementen in $N$, die man sich geordnet vorstellen kann ("uber die Indizierung) ist eine Matrix $(a_{ij})$ mit $1\leq i\leq m, 1\leq j\leq n$ und f"ur die Eintr"age $a_{ij}$ in Zeile $i$ und Spalte $j$ gilt:
+  \[a_{ij}=1\Leftrightarrow (x_i,y_j)\in R, a_{ij}=0\Leftrightarrow (x_i,y_j)\notin R \]
+\end{frame}
+
+\begin{frame}{Eigenschaften von Relationen}
+Relationen sind in h"ochster Allgemeinheit definiert. Nun kann man bestimmte Eigenschaften untersuchen.
+\begin{definition}
+Sei $R\subseteq M\times M$ eine Relation "uber einer Menge $M$ (Man beachte, dass die Elemente nur aus einer Menge $M$ stammen). Dann ist $R$
+\begin{enumerate}
+\item \textbf{reflexiv}, wenn $\forall x\in M: (x,x)\in R$
+\item \textbf{irreflexiv}, wenn $\forall x\in M: (x,x)\notin R$
+\item \textbf{symmetrisch}, wenn $\forall x,y\in M: (x,y)\in R\Rightarrow (y,x)\in R$
+\item \textbf{antisymmetrisch}, wenn $\forall x,y\in M: (x,y)\in R\wedge (y,x)\in R\Rightarrow x=y$
+\item \textbf{asymmetrisch}, wenn $\forall x,y\in M: (x,y)\in R\Rightarrow (y,x)\notin R$
+\item \textbf{transitiv}, wenn $\forall x,y,z\in M: (x,y)\in R\wedge (y,z)\in R\Rightarrow (x,z)\in R$
+\end{enumerate}
+\end{definition}
 \end{frame}
 
   % \begin{block}{Cryptographic System}
