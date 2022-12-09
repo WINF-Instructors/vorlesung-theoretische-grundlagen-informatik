@@ -12,6 +12,7 @@
 \usepackage{amsmath}
 \usepackage{verbatim}
 \usepackage{mathrsfs}
+
 %\usetheme{Boadilla}
 %\usecolortheme{crane}
 \title[Mathematik I]{Mathematik I: \\Theoretische Grundlagen der Informatik}
@@ -309,6 +310,105 @@ Es gilt:
   \item $\forall A,B,C: A\backslash(B\cap C)=(A\backslash B)\cap (A\backslash C)$
 \end{itemize}
 
+\end{frame}
+
+\begin{frame}{Kartesisches Produkt}
+  Zun"achst f"uhren wir Paare ein. Diese werden, im Gegensatz zu Mengen mit runden Klammern notiert, z.B.
+  $(1,2)$ das Paar, dessen erste Komponente die Zahl $1$ und zweite Komponente $2$ ist. Hier kommt es auf die Reihenfolge an, z.B. $(1,2)\neq(2,1)$, aber $\{1,2\}=\{2,1\}$, weil 
+  es bei Mengen nur auf die Elemente, nicht auf deren Reihenfolge ankommt.
+  
+  Es gilt insbesondere \[(a,b)=(c,d)\Leftrightarrow a=c\wedge b=d\]
+  \begin{definition}{Kartesisches Produkt}
+    Seien $M,N$ Mengen. Dann ist \[M\times N:=\{(x,y)|x\in M,y|in N\}\] das \textbf{kartesische Produkt} von $M$ und $N$.
+  \end{definition}
+  
+\end{frame}
+
+\begin{frame}{Relationen}
+ Relationen sind intuitiv Strukturen, um Beziehungen zwischen Objekten auszudr"ucken.
+ \begin{definition}{Relationen}
+  Seien $M$ und $N$ Mengen. Eine Teilmenge $R$ des kartesischen Produktes $M\times N$, also 
+  \[R\subseteq M\times N\] nennen wir \textbf{Relation} von $M$ auf $N$.
+ \end{definition}
+\end{frame}
+
+\begin{frame}{Beispiele von Relationen}  
+Ist $M$ die Menge der Menschen, dann ist $R\subseteq M\times M$ die Eltern-Kind-Beziehung ein Beispiel f"ur eine Relation.
+Also $(x,y)\in R\Leftrightarrow x$ ist Elternteil von $y$. 
+
+Ein anderes Beispiel ist die $\leq$ Relation auf $\mathbb{N}$, also $(x,y)\in R\subseteq \mathbb{Z}\times\mathbb{Z}\Leftrightarrow x\leq y$.
+
+Generell kann man eine Relation zwischen zwei Elementen auf zwei Arten notieren: auf die herk"ommliche Weise, also $(x,y)\in R$ oder mittels \textbf{Infixschreibweise} $xRy$.
+\end{frame}
+  
+
+\begin{frame}{Darstellung von Relationen}
+  Eine M"oglichkeit ist die Angabe als Menge, z.B. 
+  \[R=\{(A,B), (A,A), (B,C), (C,B)\}\]
+
+  Eine Alternative ist ein Graph.
+
+  \begin{tikzpicture}{center}
+    \node[shape=circle,draw=black] (A) at (2,2) {A};
+    \node[shape=circle,draw=black] (B) at (0,0) {B};
+    \node[shape=circle,draw=black] (C) at (3,0) {C};
+    
+
+    \path [->] (A) edge (B);
+    \path [->] (B) edge  (C);
+    \path [->] (C) edge  (B);
+    \path[<->] (A) edge [loop left]  (A);
+    
+    
+\end{tikzpicture}
+
+
+
+\end{frame}
+\begin{frame}{Darstellung von Relationen}
+  Eine andere ist die einer Matrix.
+  \[
+  \begin{pmatrix}
+    $1$ & $1$ & $0$ \\
+    $0$ & $0$ & $1$ \\
+    $0$ & $1$ & $0$
+  \end{pmatrix}
+  \]
+  Hier kann man sich die Zeilen und Spalten der Matrix annotiert mit den Elementen der Grundmengen denken.
+  Etwas formaler: Eine \textbf{Adjazenzmatrix} einer Relation $R\subseteq M\times N$ mit $M=\{x_1,...,x_m\}$ und $N=\{y_1,...,y_n\}$, also $m$ Elementen in $M$ und $n$ Elementen in $N$, die man sich geordnet vorstellen kann ("uber die Indizierung) ist eine Matrix $(a_{ij})$ mit $1\leq i\leq m, 1\leq j\leq n$ und f"ur die Eintr"age $a_{ij}$ in Zeile $i$ und Spalte $j$ gilt:
+  \[a_{ij}=1\Leftrightarrow (x_i,y_j)\in R, a_{ij}=0\Leftrightarrow (x_i,y_j)\notin R \]
+\end{frame}
+
+\begin{frame}{Eigenschaften von Relationen}
+Relationen sind in h"ochster Allgemeinheit definiert. Nun kann man bestimmte Eigenschaften untersuchen.
+\begin{definition}
+Sei $R\subseteq M\times M$ eine Relation "uber einer Menge $M$ (Man beachte, dass die Elemente nur aus einer Menge $M$ stammen). Dann ist $R$
+\begin{enumerate}
+\item \textbf{reflexiv}, wenn $\forall x\in M: (x,x)\in R$
+\item \textbf{irreflexiv}, wenn $\forall x\in M: (x,x)\notin R$
+\item \textbf{symmetrisch}, wenn $\forall x,y\in M: (x,y)\in R\Rightarrow (y,x)\in R$
+\item \textbf{antisymmetrisch}, wenn $\forall x,y\in M: (x,y)\in R\wedge (y,x)\in R\Rightarrow x=y$
+\item \textbf{asymmetrisch}, wenn $\forall x,y\in M: (x,y)\in R\Rightarrow (y,x)\notin R$
+\item \textbf{transitiv}, wenn $\forall x,y,z\in M: (x,y)\in R\wedge (y,z)\in R\Rightarrow (x,z)\in R$
+\end{enumerate}
+\end{definition}
+\end{frame}
+
+\begin{frame}{Komposition von Relationen}
+\begin{definition}{Komposition von Relationen}
+  Seien $R\subseteq M\times N, S\subseteq N\times P$. Wir definieren 
+  \[R\circ S=\{(x,z)\in M\times P|\exists y\in N:(x,y)\in R\wedge (y,z)\in S\}\]
+  als \textbf{Komposition} von $R$ und $S$.
+
+\end{definition}
+Die Komposition ist praktisch die \glqq Hintereinanderschaltung\grqq der Relationen $R$ und $S$.
+\end{frame}
+\begin{frame}{Funktionen}
+  Funktionen sind spezielle Relationen, die jedem Element im Urbildraum (der ersten Menge im kartesischen Produkt) genau ein ELement im Bildraum zuordnen.
+  \begin{definition}{Funktionen}
+    Eine Relation $f\subseteq M\times N$ hei"st \textbf{Funktion}, wenn \[\forall x\in M \exists y\in N: (x,y)\in f\wedge \forall y'\in N:(x,y')\in f\Rightarrow y=y'\]
+    Da somit das mit einem Element $x$ in Relation stehende Element $y$ eindeutig bestimmt ist, schreiben wir auch $y=f(x)$ und bezeichnen $y$ als \textbf{das Bild} von $x$.
+  \end{definition}
 \end{frame}
   % \begin{block}{Cryptographic System}
   %   An encryption is a function $enc:K\times P\to C$ from the cartesian product of the set of keys $K$ and the set of plaintexts $P$ to the set cyphertexts $C$. A decryption is a function $dec: K\times C\to P$. A suitable decryption has a key $k'$ such that \[\forall k\in K\forall x\in P: dec(k',enc(k,x))=x\]
