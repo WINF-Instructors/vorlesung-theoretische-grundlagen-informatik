@@ -394,6 +394,22 @@ Sei $R\subseteq M\times M$ eine Relation "uber einer Menge $M$ (Man beachte, das
 \end{definition}
 \end{frame}
 
+\begin{frame}{Komposition von Relationen}
+\begin{definition}{Komposition von Relationen}
+  Seien $R\subseteq M\times N, S\subseteq N\times P$. Wir definieren 
+  \[R\circ S=\{(x,z)\in M\times P|\exists y\in N:(x,y)\in R\wedge (y,z)\in S\}\]
+  als \textbf{Komposition} von $R$ und $S$.
+
+\end{definition}
+Die Komposition ist praktisch die \glqq Hintereinanderschaltung\grqq der Relationen $R$ und $S$.
+\end{frame}
+\begin{frame}{Funktionen}
+  Funktionen sind spezielle Relationen, die jedem Element im Urbildraum (der ersten Menge im kartesischen Produkt) genau ein ELement im Bildraum zuordnen.
+  \begin{definition}{Funktionen}
+    Eine Relation $f\subseteq M\times N$ hei"st \textbf{Funktion}, wenn \[\forall x\in M \exists y\in N: (x,y)\in f\wedge \forall y'\in N:(x,y')\in f\Rightarrow y=y'\]
+    Da somit das mit einem Element $x$ in Relation stehende Element $y$ eindeutig bestimmt ist, schreiben wir auch $y=f(x)$ und bezeichnen $y$ als \textbf{das Bild} von $x$.
+  \end{definition}
+\end{frame}
   % \begin{block}{Cryptographic System}
   %   An encryption is a function $enc:K\times P\to C$ from the cartesian product of the set of keys $K$ and the set of plaintexts $P$ to the set cyphertexts $C$. A decryption is a function $dec: K\times C\to P$. A suitable decryption has a key $k'$ such that \[\forall k\in K\forall x\in P: dec(k',enc(k,x))=x\]
   %   Alternative notation for $enc(k,m)$ is $enc_k(m)$.
