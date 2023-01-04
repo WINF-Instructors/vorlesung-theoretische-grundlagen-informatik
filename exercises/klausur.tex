@@ -1,0 +1,33 @@
+%!TEX TS-program = pdflatex
+%!TEX TS-options = -shell-escape
+% % % % %   Die folgenden Zeilen müssen ihre Zeilennummern 4 und 5 behalten !!!    % % % % %
+\newcommand{\printpraesenzlsg}{false}
+\newcommand{\printloesungen}{true}
+\newcommand{\printbewertungen}{false}
+% % % % %   \newcommand{\printloesungen}{false}                                    % % % % %
+\newcommand{\blattnummer}{1}
+%\newcommand{\abgabetermin}{\textcolor{red}{bis 11.04.2022, 09:00 Uhr}}
+\input{include/config.tex}
+
+% Änderungen 2020: Hinweise auf Digitallehre angepasst; Rechnergeschichte entfernt; Blatt 1 und 2 zusammengefasst.
+\begin{document}
+
+\iforiginal{\input{include/kopf.tex}}
+\aufgabetitel{$5$}{Mengenoperationen und Relationen}\\
+Gegeben seien die Mengen $A=\{1,2,3,4\}$ und $B=\{1,2,a,b\}$, sowie die Relation $R\subseteq A\times B$ mit $R=\{(1,1),(1,2),(2,a),(3,b),(4,1)\}$ und die Relation 
+$S\subseteq B\times A$, $S=\{(1,1),(2,2),(a,3),(b,4)\}$ gegeben.
+\begin{enumerate}[(i)]
+    \item Bestimmen Sie $A\cap B$.
+    \item Bestimmen Sie $A\cup B$.
+    \item Bestimmen Sie $A\backslash B$.
+    \item Bestimmen Sie $\mathscr{P}(A\cap B)$
+    \item Ist $R$ eine Funktion? Begr"unden Sie.
+    \item Ist $S$ eine Funktion? Begr"unden Sie.
+    \item Ist $R$ eine Ordnung? Begr"unden Sie.
+    \item Stellen Sie $R$ als Graph dar.
+    \item Stellen Sie $S$ als Graph dar.
+    \item Bestimmen Sie $R\circ S$.
+    \item Stellen Sie $R\circ S$ als Graph dar.
+    \item 
+\end{enumerate}
+\end{document}
