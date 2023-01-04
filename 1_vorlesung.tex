@@ -318,7 +318,7 @@ Es gilt:
   es bei Mengen nur auf die Elemente, nicht auf deren Reihenfolge ankommt.
   
   Es gilt insbesondere \[(a,b)=(c,d)\Leftrightarrow a=c\wedge b=d\]
-  \begin{definition}{Kartesisches Produkt}
+  \begin{definition}[Kartesisches Produkt]
     Seien $M,N$ Mengen. Dann ist \[M\times N:=\{(x,y)|x\in M,y|in N\}\] das \textbf{kartesische Produkt} von $M$ und $N$.
   \end{definition}
   
@@ -326,7 +326,7 @@ Es gilt:
 
 \begin{frame}{Relationen}
  Relationen sind intuitiv Strukturen, um Beziehungen zwischen Objekten auszudr"ucken.
- \begin{definition}{Relationen}
+ \begin{definition}[Relationen]
   Seien $M$ und $N$ Mengen. Eine Teilmenge $R$ des kartesischen Produktes $M\times N$, also 
   \[R\subseteq M\times N\] nennen wir \textbf{Relation} von $M$ auf $N$.
  \end{definition}
@@ -395,7 +395,7 @@ Sei $R\subseteq M\times M$ eine Relation "uber einer Menge $M$ (Man beachte, das
 \end{frame}
 
 \begin{frame}{Komposition von Relationen}
-\begin{definition}{Komposition von Relationen}
+\begin{definition}[Komposition von Relationen]
   Seien $R\subseteq M\times N, S\subseteq N\times P$. Wir definieren 
   \[R\circ S=\{(x,z)\in M\times P|\exists y\in N:(x,y)\in R\wedge (y,z)\in S\}\]
   als \textbf{Komposition} von $R$ und $S$.
@@ -405,10 +405,23 @@ Die Komposition ist praktisch die \glqq Hintereinanderschaltung\grqq der Relatio
 \end{frame}
 \begin{frame}{Funktionen}
   Funktionen sind spezielle Relationen, die jedem Element im Urbildraum (der ersten Menge im kartesischen Produkt) genau ein ELement im Bildraum zuordnen.
-  \begin{definition}{Funktionen}
+  \begin{definition}[Funktionen]
     Eine Relation $f\subseteq M\times N$ hei"st \textbf{Funktion}, wenn \[\forall x\in M \exists y\in N: (x,y)\in f\wedge \forall y'\in N:(x,y')\in f\Rightarrow y=y'\]
     Da somit das mit einem Element $x$ in Relation stehende Element $y$ eindeutig bestimmt ist, schreiben wir auch $y=f(x)$ und bezeichnen $y$ als \textbf{das Bild} von $x$.
   \end{definition}
+  Wir notieren eine Relation $f\subseteq M\times N$, die eine Funktion ist auch mit $f:M\to N, x\mapsto f(x)$.
+\end{frame}
+
+\begin{frame}{Eigenschaften von Funktionen}
+\begin{definition}[Eigenschaften von Funktionen]
+  Eine Funktion $f:M\to N$ hei"st 
+  \begin{itemize}
+    \item \textbf{injektiv}, wenn $\forall x_1,x_2\in M:f(x_1)=f(x_2)\Rightarrow x_1=x_2$.
+    \item \textbf{surjektiv}, wenn $\forall y\in N\exists x\in M:y=f(x)$.
+    \item \textbf{bijektiv}, wenn $f$ injektiv und surjektiv ist.
+  \end{itemize}
+\end{definition}
+Intuitiv bedeutet \textit{injektiv}, dass ein Funktionswert h"ochstens einen Ursprungswert hat, oder anders: Jeder Wert im Zielraum wird h"ochstens einmal von $f$ \glqq getroffen\grqq. \textit{Surjektiv} bedeutet, dass jeder Wert von $f$ \glqq getroffen\grqq wird.
 \end{frame}
   % \begin{block}{Cryptographic System}
   %   An encryption is a function $enc:K\times P\to C$ from the cartesian product of the set of keys $K$ and the set of plaintexts $P$ to the set cyphertexts $C$. A decryption is a function $dec: K\times C\to P$. A suitable decryption has a key $k'$ such that \[\forall k\in K\forall x\in P: dec(k',enc(k,x))=x\]
