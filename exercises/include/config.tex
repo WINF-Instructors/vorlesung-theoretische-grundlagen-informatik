@@ -67,7 +67,7 @@
   \setfootsepline{0.4pt}
   \setkomafont{pagehead}{\normalfont\footnotesize}
   \setkomafont{pagefoot}{\normalfont\footnotesize}
-  \lohead[]{Übungen zur Vorlesung \textit{Rechnerstrukturen} -- Sommersemester 2022}
+  \lohead[]{Klausur zur Vorlesung \textit{Mathematik I - Theoretische Grundlagen der Informatik} -- Wintersemester 2022/2023}
   \rohead[]{%
     \ifthenelse{\boolean{loesungen}}{\textbf{Lösungen zu Blatt \blattnummer}}{Blatt \blattnummer}}
   \rofoot[Version: \DTMnow]{%
@@ -218,7 +218,8 @@
   \newcounter{aufgabennummer} 
   \setcounter{aufgabennummer}{1}
   \newcommand{\aufgabe}[1]{\textbf{Aufgabe \blattnummer.\theaufgabennummer} \stepcounter{aufgabennummer} \hfill (#1 Punkte)}
-  \newcommand{\aufgabetitel}[2]{\iforiginal{\vspace{0.5cm}} \textbf{Aufgabe \blattnummer.\theaufgabennummer \ (#2)} \stepcounter{aufgabennummer} \hfill (#1 Punkte)}
+  %\newcommand{\aufgabetitel}[2]{\iforiginal{\vspace{0.5cm}} \textbf{Aufgabe \blattnummer.\theaufgabennummer \ (#2)} \stepcounter{aufgabennummer} \hfill (#1 Punkte)}
+  \newcommand{\aufgabetitel}[2]{\iforiginal{\vspace{0.5cm}} \textbf{Aufgabe \theaufgabennummer \ (#2)} \stepcounter{aufgabennummer} \hfill (#1 Punkte)}
   \newcommand{\praesenztitel}[1]{\iforiginal{\vspace{0.5cm}} \textbf{Aufgabe \blattnummer.\theaufgabennummer \ (#1)} \stepcounter{aufgabennummer} \hfill \smallpencil}
 
 \newcommand{\danger}{\raisebox{0.5mm}{\fontencoding{U}\fontfamily{futs}\selectfont\char 66\relax}}
